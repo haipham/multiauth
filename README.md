@@ -28,7 +28,7 @@ With one simple command you can setup multi auth for your Laravel 5.2 & 5.3 proj
 ### Step 1: Install Through Composer
 
 ```
-composer require sonars/multiauth
+composer require sonars/multi-auth
 ```
 
 ### Step 2: Add the Service Provider
