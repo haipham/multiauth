@@ -1,0 +1,29 @@
+<?php
+
+
+//{{singularClass}} Login
+Route::get('auth()->login', '{{singularClass}}Auth\LoginController@showLoginForm');
+Route::post('auth()->login', '{{singularClass}}Auth\LoginController@login');
+Route::get('auth()->logout', '{{singularClass}}Auth\LoginController@logout');
+
+//{{singularClass}} Register
+Route::get('auth()->register', '{{singularClass}}Auth\RegisterController@showRegistrationForm');
+Route::post('auth()->register', '{{singularClass}}Auth\RegisterController@register');
+
+//{{singularClass}} Passwords
+Route::post('auth()->password/email', '{{singularClass}}Auth\ForgotPasswordController@sendResetLinkEmail');
+Route::post('auth()->password/reset', '{{singularClass}}Auth\ResetPasswordController@reset');
+Route::get('auth()->password/reset', '{{singularClass}}Auth\ForgotPasswordController@showLinkRequestForm');
+Route::get('auth()->password/reset/{token}', '{{singularClass}}Auth\ResetPasswordController@showResetForm');
+
+Route::group(['middleware' => '{{singularSnake}}'], function () {
+
+	Route::get('/home', function () {
+	    $users[] = Auth::user();
+	    $users[] = Auth::guard()->user();
+	    $users[] = Auth::guard('{{singularSnake}}')->user();
+
+	    dd($users);
+	})->name('home');
+});
+
