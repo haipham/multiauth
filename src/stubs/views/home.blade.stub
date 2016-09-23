@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Welcome</div>
                 <div class="panel-body">
-                    <h1>Welcome,  {{ auth()->guard('{{ singularSlug }}')->user()->name }}
+                    <h1>Welcome,  {{ auth()->guard('{{singularSlug}}')->user()->name }}
                 </div>
             </div>
         </div>
